@@ -1,0 +1,25 @@
+import express from "express";
+import "dotenv/config";
+import mongoose from "mongoose";
+import chatRoutes from "./routes/chat.js";
+import cors from "cors";
+const app = express();
+
+app.use(express.json());
+app.use(cors());
+
+app.use("/api",chatRoutes);
+
+const connectDB = async () => {
+  try {
+    await mongoose.connect(process.env.MONGODB_URI);
+    console.log("Successfully connected to DB");
+  } catch (err) {
+    console.log(err);
+  }
+};
+
+app.listen(6767, () => {
+  console.log("Server running on port 6767");
+  connectDB();
+});
