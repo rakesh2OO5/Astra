@@ -113,11 +113,7 @@ export default function Sidebar() {
   return (
     <section className="sidebar">
       <button onClick={createNewChat}>
-        <img
-          src="src/assets/logo.png"
-          alt="logo"
-          className="logo"
-        />
+        <img src="/logo.png" alt="logo" className="logo" />
 
         <span>
           <i className="fa-solid fa-pen-to-square"></i>
