@@ -79,7 +79,9 @@ router.post("/chat", async (req, res) => {
     thread.messages.push({ role: "assistant", content: assistantReply });
     thread.updatedAt = Date.now();
     await thread.save();
-    res.json(assistantReply);
+    res.json({
+      reply :  assistantReply
+    });
   } catch (error) {
     console.log(error);
     return res.status(500).json({ error: "Something went wrong" });
