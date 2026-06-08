@@ -9,11 +9,12 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: true
-  })
+    origin: process.env.CLIENT_URL,
+    credentials : true
+  }),
 );
 
-app.use("/api",chatRoutes);
+app.use("/api", chatRoutes);
 
 const connectDB = async () => {
   try {
@@ -29,4 +30,3 @@ const PORT = process.env.PORT || 6767;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
 });
-
