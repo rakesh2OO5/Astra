@@ -9,8 +9,7 @@ app.use(express.json());
 
 app.use(
   cors({
-    origin: process.env.CLIENT_URL,
-    credentials: true,
+    origin: true
   })
 );
 
@@ -25,7 +24,9 @@ const connectDB = async () => {
   }
 };
 
-app.listen(6767, () => {
-  console.log("Server running on port 6767");
-  connectDB();
+const PORT = process.env.PORT || 6767;
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
 });
+
