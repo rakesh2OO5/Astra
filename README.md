@@ -1,4 +1,4 @@
-# 🚀 Astra 
+# Astra 
 
 Astra is a production-ready AI chat application featuring persistent conversation threads, Markdown rendering, syntax-highlighted code blocks, typing animations, and cloud deployment using the MERN stack and OpenRouter API.
 
