@@ -19,7 +19,7 @@ Astra is a production-ready AI chat application featuring persistent conversatio
 - 🎨 Syntax highlighting for code blocks
 - 🌙 Modern ChatGPT-inspired dark UI
 - ☁️ Fully deployed on Render
-- 
+
 ---
 
 ## 🛠️ Tech Stack
@@ -44,10 +44,21 @@ Astra is a production-ready AI chat application featuring persistent conversatio
 - CORS
 - dotenv
 
-### Deployment
-- Render Static(Frontend)
-- Render Web Service(Backend)
-- MongoDB Atlas
+---
+
+## 🌍 Deployment
+
+### Frontend
+
+Hosted on Render Static Site.
+
+### Backend
+
+Hosted on Render Web Service.
+
+### Database
+
+MongoDB Atlas Cloud Database.
 
 ---
 
@@ -99,7 +110,7 @@ ASTRA
 ### Clone Repository
 
 ```bash
-git clone https://github.com/your-username/astra.git
+git clone https://github.com/rakesh2OO5/astra.git
 
 cd astra
 ```
@@ -139,23 +150,6 @@ Frontend runs on:
 ```text
 http://localhost:5173
 ```
-
----
-
-## 🌍 Deployment
-
-### Frontend
-
-Hosted on Render Static Site.
-
-### Backend
-
-Hosted on Render Web Service.
-
-### Database
-
-MongoDB Atlas Cloud Database.
-
 ---
 ## 📸 Screenshots
 
