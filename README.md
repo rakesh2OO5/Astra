@@ -1,6 +1,6 @@
-# 🚀 Astra AI Chatbot
+# 🚀 Astra 
 
-Astra is a full-stack AI-powered chat application built using the MERN stack and OpenRouter API. It provides a modern conversational experience with persistent chat history, thread management, and cloud deployment.
+Astra is a production-ready AI chat application featuring persistent conversation threads, Markdown rendering, syntax-highlighted code blocks, typing animations, and cloud deployment using the MERN stack and OpenRouter API.
 
 🌐 Live Demo: https://astra-frontend-lwe6.onrender.com/
 
@@ -14,11 +14,12 @@ Astra is a full-stack AI-powered chat application built using the MERN stack and
 - 🗑️ Delete chat threads
 - 📂 Load previous conversations instantly
 - ⚡ Real-time AI responses
-- 🎨 Modern ChatGPT-inspired UI
-- 🌙 Dark mode interface
+- ⌨️ Character-by-character typing animation
+- 📜 Markdown rendering support
+- 🎨 Syntax highlighting for code blocks
+- 🌙 Modern ChatGPT-inspired dark UI
 - ☁️ Fully deployed on Render
-- 📱 Responsive design
-
+- 
 ---
 
 ## 🛠️ Tech Stack
@@ -26,10 +27,13 @@ Astra is a full-stack AI-powered chat application built using the MERN stack and
 ### Frontend
 - React.js
 - Vite
-- CSS3
 - Context API
+- React Markdown
+- Rehype Highlight
+- Highlight.js
 - React Spinners
 - Font Awesome
+- CSS3
 
 ### Backend
 - Node.js
@@ -138,8 +142,6 @@ http://localhost:5173
 
 ---
 
----
-
 ## 🌍 Deployment
 
 ### Frontend
@@ -159,17 +161,12 @@ MongoDB Atlas Cloud Database.
 
 ### Home Page
 
-Add screenshots here:
+<img width="1919" height="1021" alt="image" src="https://github.com/user-attachments/assets/4db75e4e-cc47-4490-96eb-7ecbb08e44ac" />
 
-```text
-screenshots/home.png
-```
 
 ### Chat Interface
 
-```text
-screenshots/chat.png
-```
+<img width="1919" height="1018" alt="image" src="https://github.com/user-attachments/assets/bdaf0697-56ef-4f78-b28b-01d46615e7bc" />
 
 ---
 
