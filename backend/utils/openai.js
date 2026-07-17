@@ -10,7 +10,7 @@ const getOpenRouterAPIResponse = async (messages) => {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
 
-          // Optional but recommended by OpenRouter
+       
           "HTTP-Referer": process.env.CLIENT_URL,
           "X-Title": "Astra AI",
         },
