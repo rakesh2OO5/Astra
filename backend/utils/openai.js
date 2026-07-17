@@ -9,7 +9,7 @@ const getOpenRouterAPIResponse = async (messages) => {
     },
     body: JSON.stringify({
       model: "openai/gpt-oss-120b:free",
-      messages
+      messages,
     }),
   };
 
@@ -20,6 +20,18 @@ const getOpenRouterAPIResponse = async (messages) => {
     );
 
     const data = await response.json();
+
+    console.log("Status:", response.status);
+    console.log("Response:");
+    console.log(JSON.stringify(data, null, 2));
+
+    if (!response.ok) {
+      throw new Error(data.error?.message || "OpenRouter request failed");
+    }
+
+    if (!data.choices || data.choices.length === 0) {
+      throw new Error("No choices returned from OpenRouter.");
+    }
 
     return data.choices[0].message.content;
   } catch (err) {
