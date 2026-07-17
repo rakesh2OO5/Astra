@@ -1,42 +1,43 @@
 import "dotenv/config";
 
 const getOpenRouterAPIResponse = async (messages) => {
-  const options = {
-    method: "POST",
-    headers: {
-      Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
-      "Content-Type": "application/json",
-    },
-    body: JSON.stringify({
-      model: "openai/gpt-oss-120b:free",
-      messages,
-    }),
-  };
-
   try {
     const response = await fetch(
       "https://openrouter.ai/api/v1/chat/completions",
-      options
+      {
+        method: "POST",
+        headers: {
+          Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
+          "Content-Type": "application/json",
+
+          // Optional but recommended by OpenRouter
+          "HTTP-Referer": process.env.CLIENT_URL,
+          "X-Title": "Astra AI",
+        },
+        body: JSON.stringify({
+          model: "deepseek/deepseek-chat-v3-0324:free",
+          messages,
+        }),
+      }
     );
 
     const data = await response.json();
 
     console.log("Status:", response.status);
-    console.log("Response:");
     console.log(JSON.stringify(data, null, 2));
 
     if (!response.ok) {
-      throw new Error(data.error?.message || "OpenRouter request failed");
+      throw new Error(data.error?.message || "OpenRouter API Error");
     }
 
     if (!data.choices || data.choices.length === 0) {
-      throw new Error("No choices returned from OpenRouter.");
+      throw new Error("No response returned from the model.");
     }
 
     return data.choices[0].message.content;
-  } catch (err) {
-    console.log(err);
-    throw err;
+  } catch (error) {
+    console.error("OpenRouter Error:", error);
+    throw error;
   }
 };
 
