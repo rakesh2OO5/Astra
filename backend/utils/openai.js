@@ -9,6 +9,8 @@ const getOpenRouterAPIResponse = async (messages) => {
         headers: {
           Authorization: `Bearer ${process.env.OPENROUTER_API_KEY}`,
           "Content-Type": "application/json",
+          "HTTP-Referer": process.env.CLIENT_URL,
+          "X-Title": "Astra AI",
         },
         body: JSON.stringify({
           model: "openrouter/free",
@@ -19,16 +21,22 @@ const getOpenRouterAPIResponse = async (messages) => {
 
     const data = await response.json();
 
-    console.log("Status:", response.status);
-    console.log(JSON.stringify(data, null, 2));
-
     if (!response.ok) {
-      throw new Error(data.error?.message || "OpenRouter API Error");
+      console.error("OpenRouter Error:", data);
+
+      throw new Error(
+        data.error?.message ||
+          "Failed to get response from OpenRouter."
+      );
+    }
+
+    if (!data.choices || data.choices.length === 0) {
+      throw new Error("No response returned by OpenRouter.");
     }
 
     return data.choices[0].message.content;
   } catch (error) {
-    console.error(error);
+    console.error("OpenRouter Error:", error);
     throw error;
   }
 };
